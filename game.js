@@ -4,7 +4,8 @@ const game={status:'setup',duration:15,matchRemaining:300,rope:0,timer:null,sett
 function team(name){return{name,score:0,combo:0,maxCombo:0,correct:0,wrong:0,totalTime:0,selected:null,answered:false,pull:0,round:0,finished:false}}
 function shuffle(items){const a=[...items];for(let i=a.length-1;i;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function pool(){const s=game.settings;return indonesiaQuestions.filter(q=>s.categories.includes(q.category)&&(s.difficulty==='mixed'||q.difficulty===+s.difficulty))}
-function prepareQuestions(){const all=pool();game.questions={left:shuffle(all),right:shuffle(all)}}
+function randomizeOptions(question){const choices=shuffle(question.options.map((text,index)=>({text,isCorrect:index===question.correctAnswer})));return{...question,options:choices.map(choice=>choice.text),correctAnswer:choices.findIndex(choice=>choice.isCorrect)}}
+function prepareQuestions(){const all=pool();game.questions={left:shuffle(all).map(randomizeOptions),right:shuffle(all).map(randomizeOptions)}}
 function pullPower(ok,remaining,combo,side){if(!ok)return 0;const used=1-remaining/game.duration;let value=10+(used<=.25?5:used<=.5?3:used<=.75?1:0)+(combo>=5?5:combo>=3?3:combo>=2?2:0);const losing=(side==='left'&&game.rope>65)||(side==='right'&&game.rope< -65);return Math.round(value*(losing?1.15:1))}
 function renderTeam(side){const t=game[side];$(side+'Name').textContent=t.name;$(side+'Score').textContent=t.score;$(side+'Combo').textContent=`COMBO x${t.combo}`}
 function setTimer(side,value){game[side].remaining=value;const el=$(side+'Timer');el.textContent=`00:${String(value).padStart(2,'0')}`;el.classList.toggle('urgent',value<=5&&!game[side].answered)}
