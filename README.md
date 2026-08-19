@@ -105,7 +105,7 @@ Tim yang tertinggal jauh pada posisi tali mendapatkan bonus comeback kecil sebes
 
 ## Bank Soal
 
-Bank soal berada di `questions.js` dan saat ini berisi **106 soal** dengan ID unik.
+Bank soal berada di `questions.js` dan saat ini berisi **206 soal** dengan ID unik. Sebanyak 100 soal tambahan berada pada level sedang dan dibagi rata ke seluruh kategori.
 
 Kategori yang tersedia:
 
@@ -147,7 +147,7 @@ Nilai `correctAnswer` menggunakan indeks `0–3`, sedangkan `difficulty` menggun
 - `2` untuk sedang
 - `3` untuk sulit
 
-Distribusi tingkat kesulitan untuk kedua tim dibuat seimbang. Dalam pertandingan panjang, bank soal dapat diputar kembali setelah antrean soal tersedia habis.
+Distribusi tingkat kesulitan untuk kedua tim dibuat seimbang. Dalam satu sesi, soal tidak pernah berulang pada tim yang sama. Tim lawan tetap dapat menerima soal yang pernah muncul di tim sebelah. Jika seluruh soal yang cocok dengan filter telah habis, panel tim berhenti tanpa mengulang soal sampai waktu pertandingan selesai.
 
 ## Kondisi Selesai dan Hasil
 
