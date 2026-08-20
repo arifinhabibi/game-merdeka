@@ -105,7 +105,7 @@ Tim yang tertinggal jauh pada posisi tali mendapatkan bonus comeback kecil sebes
 
 ## Bank Soal
 
-Bank soal berada di `questions.js` dan saat ini berisi **206 soal** dengan ID unik. Sebanyak 100 soal tambahan berada pada level sedang dan dibagi rata ke seluruh kategori.
+Bank soal berada di `questions.js` dan saat ini berisi **331 soal** dengan ID unik: 100 soal mudah, 200 soal sedang, dan 31 soal sulit. Level mudah dan sedang dibagi rata ke seluruh kategori, masing-masing 10 dan 20 soal per kategori.
 
 Kategori yang tersedia:
 
@@ -147,7 +147,7 @@ Nilai `correctAnswer` menggunakan indeks `0–3`, sedangkan `difficulty` menggun
 - `2` untuk sedang
 - `3` untuk sulit
 
-Distribusi tingkat kesulitan untuk kedua tim dibuat seimbang. Urutan soal dan posisi pilihan A/B/C/D diacak secara independen untuk setiap tim pada awal pertandingan. Dalam satu sesi, soal tidak pernah berulang pada tim yang sama. Tim lawan tetap dapat menerima soal yang pernah muncul di tim sebelah. Jika seluruh soal yang cocok dengan filter telah habis, panel tim berhenti tanpa mengulang soal sampai waktu pertandingan selesai.
+Pada mode Campuran, kedua tim mendapat urutan tingkat kesulitan yang sama sehingga persentase bobotnya identik pada setiap ronde. Soal di dalam setiap tingkat kesulitan dan posisi pilihan A/B/C/D tetap diacak secara independen untuk tiap tim pada awal pertandingan. Dalam satu sesi, soal tidak pernah berulang pada tim yang sama. Tim lawan tetap dapat menerima soal yang pernah muncul di tim sebelah. Jika seluruh soal yang cocok dengan filter telah habis, panel tim berhenti tanpa mengulang soal sampai waktu pertandingan selesai.
 
 ## Kondisi Selesai dan Hasil
 
@@ -158,10 +158,11 @@ Pemenang ditentukan berdasarkan skor tertinggi. Posisi tali berfungsi sebagai vi
 Layar hasil menampilkan:
 
 - Nama pemenang
-- Skor
-- Jumlah jawaban benar
-- Akurasi
-- Combo tertinggi
+- Papan skor kedua tim
+- Jumlah jawaban benar dan salah
+- Akurasi setiap tim
+- Riwayat jawaban setiap tim
+- Jawaban yang dipilih, jawaban yang benar, alasan benar atau salah, waktu menjawab, dan poin setiap soal
 
 Pilihan setelah pertandingan:
 
